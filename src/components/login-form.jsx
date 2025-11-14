@@ -17,7 +17,9 @@ export function LoginForm({
       <FieldGroup>
         <div className="flex flex-col items-start gap-1 ">
           <div>
-             <button className="w-[36px] h-[36px] border rounded-md items-center "><BackIcon/></button>
+              <Button variant="outline" size="icon" aria-label="Go Back">
+                <BackIcon/>
+                </Button>
           </div>
           <h1 className="text-2xl font-bold text-start">Log in</h1>
           <p className="text-muted-foreground text-sm text-balance">
