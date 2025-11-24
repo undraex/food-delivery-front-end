@@ -36,7 +36,7 @@ export function SignupForm({
         <Field>
           <FieldDescription className="text-center">
             Already have an account?{" "}
-            <a href="#" className="hover:underline underline-offset-4 text-[#2563EB]">
+            <a href="/login" className="hover:underline underline-offset-4 text-[#2563EB]">
               Log in
             </a>
           </FieldDescription>

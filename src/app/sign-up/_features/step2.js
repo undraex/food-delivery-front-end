@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Field, FieldDescription, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { ChevronLeft } from "lucide-react";
@@ -8,27 +7,25 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Step2({ next, back, formik }) {
-  const { values, handleChange, handleBlur, errors, touched } = formik;
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    handleSubmit,
+    isSubmitting,
+  } = formik;
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLetsGo = async (e) => {
-    e.preventDefault();
-    formik.setTouched({
-      password: true,
-      confirmPassword: true,
-    });
-    const errors = await formik.validateForm();
-
-    if (Object.keys(errors).length === 0) {
-      router.push("/authentication/login");
-    }
-  };
   return (
     <div className="flex flex-col gap-6">
-      {/* <Card className="overflow-hidden p-0 border-none shadow-none rounded-none"> */}
-      {/* <CardContent className="grid p-0"> */}
-      <form className="">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault(), handleSubmit(values);
+        }}
+      >
         <FieldGroup className="gap-6">
           <Button
             variant="outline"
@@ -107,7 +104,13 @@ export default function Step2({ next, back, formik }) {
 
           <div className="w-[416px]">
             <Field>
-              <Button onClick={handleLetsGo}>Let's go</Button>
+              <Button
+                type="submit"
+                // onClick={handleSubmit}
+                // disabled={isSubmitting}
+              >
+                Let's go
+              </Button>
             </Field>
           </div>
           <FieldDescription className="text-center">
@@ -121,8 +124,6 @@ export default function Step2({ next, back, formik }) {
           </FieldDescription>
         </FieldGroup>
       </form>
-      {/* </CardContent> */}
-      {/* </Card> */}
     </div>
   );
 }

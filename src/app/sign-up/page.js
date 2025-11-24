@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Step1 from "./_features/step1";
 import Step2 from "./_features/step2";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function SignupPage() {
   const [step, setStep] = useState(1);
+  const router = useRouter();
+  const [apiError, setApiError] = useState("");
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
@@ -22,14 +26,38 @@ export default function SignupPage() {
       .required("Please confirm your password"),
   });
 
+  const createUser = async (email, password) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:999/authentication/sign-up",
+        {
+          email,
+          password,
+        }
+      );
+
+      router.push("/login");
+    } catch (err) {
+      if (err.response?.data) {
+        setApiError(err.response.data);
+      } else {
+        setApiError("Something went wrong. Please try again.");
+      }
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
       confirmPassword: "",
     },
-    validationSchema,
-    onSubmit: () => {},
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      const { email, password } = values;
+
+      await createUser(email, password);
+    },
   });
 
   const next = () => setStep((s) => s + 1);
@@ -42,6 +70,7 @@ export default function SignupPage() {
           <div className="w-full max-w-xs">
             {step === 1 && <Step1 next={next} formik={formik} />}
             {step === 2 && <Step2 next={next} back={back} formik={formik} />}
+            {apiError && <div style={{ color: "red" }}>{apiError}</div>}
           </div>
         </div>
       </div>
