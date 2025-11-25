@@ -113,15 +113,6 @@ export default function Step2({ next, back, formik }) {
               </Button>
             </Field>
           </div>
-          <FieldDescription className="text-center">
-            Already have an account?{" "}
-            <a
-              href="#"
-              className="hover:underline underline-offset-4 text-[#2563EB]"
-            >
-              Log in
-            </a>
-          </FieldDescription>
         </FieldGroup>
       </form>
     </div>

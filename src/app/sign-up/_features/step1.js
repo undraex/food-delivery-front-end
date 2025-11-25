@@ -61,7 +61,7 @@ export default function Step1({ next, formik }) {
             <FieldDescription className="text-center items-center justify center">
               Already have an account?
               <a
-                href="#"
+                href="/login"
                 className="hover:underline underline-offset-4 text-[#2563EB]"
               >
                 Log in
