@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PlusIcon } from "@/_icons/PlusIcon";
 import { CancelIcon } from "@/_icons/CancelIcon";
+import FoodCard from "@/_components/FoodCard";
 
 export default function AdminPage() {
   const [categories, setCategories] = useState([
@@ -136,14 +137,17 @@ export default function AdminPage() {
             )}
           </div>
 
-          <div className="w-[1171px] h-[582px] p-[20px] bg-white items-center justify-center mt-[24px] rounded-[12px]">
+          <div className="w-[1171px] h-[582px] p-[20px] bg-white  mt-[24px] rounded-[12px]">
             <p className="text-[20px] font-semibold">Appetizers</p>
-
-            <div className="w-[239px] h-[209px] border-dashed rounded-[20px] border border-red-500  text-[14px] font-inter">
-              <div className="items-center justify-center">
-                <PlusIcon />
-                Add new Dish to Salads
+            <div className="flex items-center">
+              <div className="w-[239px] h-[209px] border-dashed rounded-[20px] border border-red-500  text-[14px] font-inter">
+                <div className="items-center justify-center items-center">
+                  <PlusIcon />
+                  Add new Dish to Salads
+                </div>
               </div>
+
+              <FoodCard />
             </div>
           </div>
         </div>
