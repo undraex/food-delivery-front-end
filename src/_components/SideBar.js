@@ -18,7 +18,7 @@ export function Sidebar() {
         </div>
       </div>
 
-      <div className="mt-[40px] gap-[26px]">
+      <div className="mt-[40px] flex flex-col gap-[24px]">
         <Button className="bg-black w-[165px] h-[40px] rounded-full text-white items-center justify-center">
           <FoodMenuIcon />
           <p>Food menu</p>
