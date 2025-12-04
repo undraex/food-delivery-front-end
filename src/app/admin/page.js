@@ -1,25 +1,53 @@
 "use client";
 import { useState } from "react";
-import { AvatarIcon } from "@/_icons/AvatarIcon";
 import { Sidebar } from "@/_components/SideBar";
 import CategorySection from "@/_components/CategorySection";
 import DishesSection from "@/_components/DishesSection";
 import AvatarSection from "@/_components/AvatarSection";
+import { useRouter } from "next/navigation";
+import { useFormik } from "formik";
+import axios from "axios";
+import { toast } from "sonner";
 
 export default function AdminPage() {
-  const [categories, setCategories] = useState([
-    "All dishes",
-    "Appetizers",
-    "Salads",
-    "Pizzas",
-    "Lunch favorites",
-    "Main dishes",
-    "Fish & Sea foods",
-    "Brunch",
-    "Side dish",
-    "Desserts",
-    "Beverages",
-  ]);
+  const router = useRouter;
+  const [categories, setCategories] = useState([]);
+  const createCategory = async (categoryName) => {
+    try {
+      const response = await axios.post("http://localhost:999/food-category", {
+        categoryName: categoryName,
+      });
+      router.push("/home");
+      setMessage(response.data.message || "amjilttai bolloo");
+      alert("amjilttai bolloo");
+    } catch (error) {
+      // setMessage(error.response?.data?.message || "amjiltgui bolloo");
+      alert("amjiltgui");
+    }
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      categoryName: "",
+    },
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const { categoryName } = values;
+
+        await createCategory(categoryName);
+        alert(JSON.stringify(values, null, 2));
+
+        toast.success("New Category is being added to the menu", {
+          className: "bg-black text-white",
+        });
+        resetForm();
+        setIsDialogOpen(false);
+      } catch (error) {
+        console.error(error);
+        toast.error("Failed to add category");
+      }
+    },
+  });
 
   const [newCategory, setNewCategory] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -52,6 +80,7 @@ export default function AdminPage() {
             setIsDialogOpen={setIsDialogOpen}
             handleKeyPress={handleKeyPress}
             handleAddCategory={handleAddCategory}
+            formik={formik}
           />
 
           <DishesSection />
