@@ -34,7 +34,6 @@ export default function LoginPage() {
       console.log("response", response);
       localStorage.setItem("token", response.data.token);
       router.push("/admin");
-      // alert("Successful");
     } catch (err) {
       console.log("err", err);
 

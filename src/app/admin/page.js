@@ -18,7 +18,7 @@ export default function AdminPage() {
         categoryName: categoryName,
       });
       router.push("/home");
-      setMessage(response.data.message || "amjilttai bolloo");
+      setMessage(response.data.message);
       alert("amjilttai bolloo");
     } catch (error) {
       // setMessage(error.response?.data?.message || "amjiltgui bolloo");
