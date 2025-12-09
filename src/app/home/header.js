@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div className="w-full h-[196px] bg-[#18181B] p-[12px_88px] items-center justify center">
       <div className="w-[1440px] h-[172px] justify-between ">
-        <div className="flex gap-3 justify-center ">
+        <div className="flex gap-3 ">
           <LogoIcon />
           <div>
             <CompanyNameIcon />
