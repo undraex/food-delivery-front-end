@@ -60,7 +60,7 @@ export default function DishesCategory({ formik, categories }) {
         ))}
 
         <button onClick={() => setIsDialogOpen(true)}>
-          <PlusIcon />
+          <PlusIcon className="rounded-full bg-red-500 mt-[68px]  hover:bg-[#E64A19] transition-colors"/>
         </button>
       </div>
       <AddCategoryDialog
@@ -72,7 +72,7 @@ export default function DishesCategory({ formik, categories }) {
         setIsDialogOpen={setIsDialogOpen}
         handleAddCategory={handleAddCategory}
         handleDeleteCategory={handleDeleteCategory}
-        formik={categoryFormik}
+        formik={formik}
       />
     </div>
   );
