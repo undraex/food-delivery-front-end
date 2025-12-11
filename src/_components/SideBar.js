@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function Sidebar() {
   return (
-    <div className="w-[205px] h-[1150px] p-[36px_20px] items-center bg-white">
+    <div className="w-[205px] h-full p-[36px_20px] items-center bg-white">
       <div className="flex gap-[8px]">
         <div>
           <LogoIcon />

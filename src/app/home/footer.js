@@ -2,10 +2,19 @@ import { CompanyNameIcon } from "@/_icons/CompanyNameIcon";
 import { LogoIcon } from "@/_icons/logoIcon";
 
 export default function Footer() {
+  const banner = ["Fresh fast delivered"];
+
   return (
     <div className="flex flex-col w-full h-[755px] bg-[#18181B] justify-center items-center">
-      <div className="bg-red-500 w-full h-[92px] text-[30px] font-semibold text-white ">
-        Fresh fast delivered
+      <div className="w-full">
+        {banner.map((text, index) => (
+          <div
+            key={index}
+            className="bg-red-500 w-full h-[92px] text-[30px] font-semibold text-white flex items-center justify-center"
+          >
+            {text}
+          </div>
+        ))}
       </div>
 
       <div className="flex flex-col">

@@ -6,7 +6,6 @@ export default function AddCategoryDialog({
   newCategory,
   setNewCategory,
   setIsDialogOpen,
-  handleKeyPress,
   handleAddCategory,
 }) {
   if (!isDialogOpen) return null;
@@ -34,7 +33,6 @@ export default function AddCategoryDialog({
             type="text"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
-            onKeyPress={handleKeyPress}
             placeholder="Type category name..."
             className="w-full px-4 py-2 border border-[#E4E4E7] rounded-lg mb-4"
             autoFocus
