@@ -24,7 +24,7 @@ export default function LoginPage() {
   const loginUser = async (email, password) => {
     try {
       const response = await axios.post(
-        "http://localhost:999/authentication/login",
+        "https://food-delivery-back-end-98ow.onrender.com/authentication/login",
         {
           email: email,
           password: password,

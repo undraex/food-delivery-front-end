@@ -65,7 +65,7 @@ export default function AddDishDialog({
         }
         setIsDialogOpen={setIsDialogOpen}
         handleAddDish={handleAddDish}
-        handleDeleteCategory={handleDeleteCategory}
+        handleDeleteDish={handleDeleteDish}
         formik={formik}
       />
     </div>

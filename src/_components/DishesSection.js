@@ -1,7 +1,10 @@
 "use client";
+import { useState } from "react";
 import AddDishCard from "./AddDishCard";
 import FoodCard from "./FoodCard";
 import { useFormik } from "formik";
+import AddDishDialog from "./AddDishDialog";
+import { PlusIcon } from "lucide-react";
 
 const handleAddDish = async () => {
   const name = values.categoryName.trim();
@@ -17,7 +20,9 @@ const handleAddDish = async () => {
 
 const handleDeleteDish = async (id) => {
   try {
-    await axios.delete(`http://localhost:999/food-category/${id}`);
+    await axios.delete(
+      `https://food-delivery-back-end-98ow.onrender.com/food-category/${id}`
+    );
     toast.success("success delete category");
   } catch (err) {
     toast.error("Something went wrong");
@@ -46,6 +51,9 @@ export default function DishesSection({ formik, categories }) {
             </div>
           </div>
         ))}
+        <button onClick={() => setIsDialogOpen(true)}>
+          <PlusIcon className="rounded-full bg-red-500   hover:bg-[#E64A19] transition-colors" />
+        </button>
       </div>
       <AddDishDialog
         isDialogOpen={isDialogOpen}
@@ -56,7 +64,7 @@ export default function DishesSection({ formik, categories }) {
         setIsDialogOpen={setIsDialogOpen}
         handleAddDish={handleAddDish}
         handleDeleteDish={handleDeleteDish}
-        formik={dishFormik}
+        formik={formik}
       />
     </div>
   );

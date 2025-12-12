@@ -29,7 +29,9 @@ export default function DishesCategory({ formik, categories }) {
 
   const handleDeleteCategory = async (id) => {
     try {
-      await axios.delete(`http://localhost:999/food-category/${id}`);
+      await axios.delete(
+        `https://food-delivery-back-end-98ow.onrender.com/food-category/${id}`
+      );
       toast.success("success delete category");
     } catch (err) {
       toast.error("Something went wrong");
@@ -60,7 +62,7 @@ export default function DishesCategory({ formik, categories }) {
         ))}
 
         <button onClick={() => setIsDialogOpen(true)}>
-          <PlusIcon className="rounded-full bg-red-500 mt-[68px]  hover:bg-[#E64A19] transition-colors"/>
+          <PlusIcon className="rounded-full bg-red-500   hover:bg-[#E64A19] transition-colors" />
         </button>
       </div>
       <AddCategoryDialog

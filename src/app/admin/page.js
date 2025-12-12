@@ -17,7 +17,9 @@ export default function AdminPage() {
 
   const getCategory = async () => {
     try {
-      const result = await axios.get("http://localhost:999/food-category");
+      const result = await axios.get(
+        "https://food-delivery-back-end-98ow.onrender.com/food-category"
+      );
       setCategories(result.data);
     } catch (err) {
       toast.error("Failed to load category");
@@ -31,7 +33,7 @@ export default function AdminPage() {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:999/food-category",
+        "https://food-delivery-back-end-98ow.onrender.com/food-category",
         {
           categoryName: categoryName,
         },
@@ -113,11 +115,11 @@ export default function AdminPage() {
             setNewCategory={setNewCategory}
             isDialogOpen={isDialogOpen}
             setIsDialogOpen={setIsDialogOpen}
-            categoryFormik={categoryFormik}
-            dishFormik={dishFormik}
+            formik={categoryFormik}
+            // dishFormik={dishFormik}
           />
 
-          <DishesSection categories={categories} />
+          <DishesSection categories={categories} formik={dishFormik} />
         </div>
       </div>
     </div>

@@ -1,9 +1,10 @@
 "use client";
-import { LogoIcon } from "@/_icons/LogoIcon";
+
 import { FoodMenuIcon } from "@/_icons/FoodMenuIcon";
 import { TruckIcon } from "@/_icons/TruckIcon";
 import { SettingsIcon } from "@/_icons/SettingsIcon";
 import { Button } from "@/components/ui/button";
+import { LogoIcon } from "@/_icons/logoIcon";
 
 export function Sidebar() {
   return (
