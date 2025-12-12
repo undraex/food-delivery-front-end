@@ -1,7 +1,7 @@
 "use client";
 
 import { CompanyNameIcon } from "@/_icons/CompanyNameIcon";
-import { LogoIcon } from "@/_icons/logoIcon";
+import { LogoIcon } from "@/_icons/LogoIcon";
 
 export default function Footer({}) {
   const banner = ["Fresh fast delivered"];

@@ -4,7 +4,7 @@ import { FoodMenuIcon } from "@/_icons/FoodMenuIcon";
 import { TruckIcon } from "@/_icons/TruckIcon";
 import { SettingsIcon } from "@/_icons/SettingsIcon";
 import { Button } from "@/components/ui/button";
-import { LogoIcon } from "@/_icons/logoIcon";
+import { LogoIcon } from "@/_icons/LogoIcon";
 
 export function Sidebar() {
   return (
