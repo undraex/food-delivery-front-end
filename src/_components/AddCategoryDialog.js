@@ -11,7 +11,7 @@ export default function AddCategoryDialog({
   if (!isDialogOpen) return null;
 
   return (
-    <div className="fixed bg-white flex items-center justify-center">
+    <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
       <div className="w-[412px] h-[224px] bg-white rounded-lg p-6 w-96 shadow-xl">
         <div className="flex justify-between">
           <p className="text-xl font-bold mb-4 font-inter text-[18px]">
